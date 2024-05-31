@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Dough</title>
+    <style>
+        * {
+            font-size: 24px;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        li {
+            font-size: 22px;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="pizzaCount"># of Pizzas (12in):</label>
+    <input type="number" id="pizzaCount" value="5">
+    <br><br>
+    <label for="flour">Flour:</label>
+    <span id="flour">607g</span>
+    <br>
+    <label for="salt">Salt:</label>
+    <span id="salt">18g</span>
+    <br>
+    <label for="hotWater">Hot Water:</label>
+    <span id="hotWater">121g</span>
+    <br>
+    <label for="coldWater">Cold Water:</label>
+    <span id="coldWater">242g</span>
+    <br>
+    <label for="yeast">Active Dry Yeast:</label>
+    <span id="yeast">9.2g</span>
+    <br>
+    <br>
+    <p>Alternative Yeast Options:</p>
+    <label for="iyeast">Instant Dry Yeast:</label>
+    <span id="iyeast">7g</span>
+    <br>
+    <label for="fyeast">FreshYeast:</label>
+    <span id="fyeast">20g</span>
+    <br>
+    <p>Instructions:</p>
+    <ol>
+        <li>Mix Cold and Hot Water.</li>
+        <li>Mix Yeast and Salt into Water Mixture.</li>
+        <li>Mix Water Mixture and Yeast.</li>
+        <li>Stir until ball forms.</li>
+        <li>Knead dough for 10 minutes.</li>
+        <li>Let rise in warm place for 90-120 minutes.</li>
+        <li>Divide dough into balls and place into separate bowls covered in plastic wrap.</li>
+        <li>Let rise for another 20 minutes.</li>
+    </ol>
+
+    <script>
+        const pizzaCountInput = document.getElementById('pizzaCount');
+        const flourLabel = document.getElementById('flour');
+        const saltLabel = document.getElementById('salt');
+        const hotWaterLabel = document.getElementById('hotWater');
+        const coldWaterLabel = document.getElementById('coldWater');
+        const yeastLabel = document.getElementById('yeast');
+        const iyeastLabel = document.getElementById('iyeast');
+        const fyeastLabel = document.getElementById('fyeast');
+        let pizzaCount = parseInt(pizzaCountInput.value);
+
+        pizzaCountInput.addEventListener('input', () => {
+            if (parseInt(pizzaCountInput.value))
+                pizzaCount = parseInt(pizzaCountInput.value);
+            flourLabel.textContent = `${(607 * pizzaCount / 5).toFixed(1)}g`;
+            saltLabel.textContent = `${(18 * pizzaCount / 5).toFixed(1)}g`;
+            hotWaterLabel.textContent = `${(121 * pizzaCount / 5).toFixed(1)}g`;
+            coldWaterLabel.textContent = `${(242 * pizzaCount / 5).toFixed(1)}g`;
+            yeastLabel.textContent = `${(9.2 * pizzaCount / 5).toFixed(1)}g`;
+            iyeastLabel.textContent = `${(7 * pizzaCount / 5).toFixed(1)}g`;
+            fyeastLabel.textContent = `${(20 * pizzaCount / 5).toFixed(1)}g`;
+        });
+    </script>
+</body>
+
+</html>
